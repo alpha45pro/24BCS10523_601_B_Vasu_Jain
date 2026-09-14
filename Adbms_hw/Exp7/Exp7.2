@@ -1,0 +1,32 @@
+-- CREATE
+
+CREATE TABLE EMPLOYEE (
+    empId NUMBER PRIMARY KEY,
+    name VARCHAR2(15) NOT NULL,
+    dept VARCHAR2(10) NOT NULL,
+    salary NUMBER(10)
+);
+INSERT INTO EMPLOYEE VALUES (1, 'Clark', 'Sales', 10000);
+INSERT INTO EMPLOYEE VALUES (2, 'Dave', 'Accounting', 15000);
+INSERT INTO EMPLOYEE VALUES (3, 'Ava', 'Sales', 20000);
+SELECT * 
+FROM EMPLOYEE 
+WHERE dept = 'Sales';
+BEGIN
+
+    UPDATE EMPLOYEE
+    SET salary = salary * 1.1
+    WHERE dept = 'Sales';
+
+    IF SQL%ROWCOUNT > 0 THEN
+        DBMS_OUTPUT.PUT_LINE(SQL%ROWCOUNT || ' rows affected');
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('No rows affected');
+    END IF;
+
+END;
+/
+
+SELECT * 
+FROM EMPLOYEE 
+WHERE dept = 'Sales';
