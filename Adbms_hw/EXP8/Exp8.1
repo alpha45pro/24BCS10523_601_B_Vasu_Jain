@@ -1,0 +1,19 @@
+Problem Statement:
+Scenario:
+You are tasked with creating a PostgreSQL stored procedure for a company database that manages employee salaries. The database contains a table called employees with the following structure
+Requirements:
+1. Create a stored procedure named update_salary-proc.
+2. The procedure should take:
+IN parameter: P_emp_id (Employee ID to identify which employee's salary to update)
+• INOUT parameter: P_salary (Current salary will be passed in; procedure updates it
+• OUT parameter: P-status (To return status message like 'Success' or
+'Employee Not Found')
+3. The procedure should:
+Check if the employee exists in the employees table.
+If exists:
+• Update the employee's salary by adding the value of p_salary.
+Return the updated salary in p_salary.
+• Set P_status as 'Success'
+If the employee does not exist.
+• Raise Exception and Set p_status as 'Employee Not Found'.
+Leave P_salary unchanged.
